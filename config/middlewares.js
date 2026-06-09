@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = ({ env }) => {
   // Allow extra origins (Vercel preview hashes) without a CMS redeploy.
   const defaultOrigins = [
@@ -11,7 +13,6 @@ module.exports = ({ env }) => {
     .map((s) => s.trim())
     .filter(Boolean);
 
-  // Permit R2 public URL in admin panel img-src when configured.
   const r2PublicUrl = env('R2_PUBLIC_URL');
 
   return [
@@ -61,6 +62,27 @@ module.exports = ({ env }) => {
         formidable: {
           maxFileSize: 10 * 1024 * 1024, // 10 MB — cake gallery photos
         },
+      },
+    },
+    {
+      name: 'global::rate-limit',
+      config: {
+        rules: [
+          {
+            // Order reservation: conservative for a single-baker operation
+            path: '/api/orders',
+            max: 5,
+            windowMs: 60 * 1000,
+            message: 'Too many order attempts. Please wait a minute and try again.',
+          },
+          {
+            // AI design requests: cap to control OpenAI spend
+            path: '/api/ai-design-requests',
+            max: 2,
+            windowMs: 60 * 1000,
+            message: 'Too many AI design requests. Please wait a minute.',
+          },
+        ],
       },
     },
     'strapi::session',
