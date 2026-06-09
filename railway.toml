@@ -1,0 +1,15 @@
+# Railway deployment manifest for the VBake4U Strapi CMS.
+# Build/start commands match package.json scripts; healthcheck hits the
+# /_health endpoint registered in src/index.js (PR 1.2).
+
+[build]
+builder = "NIXPACKS"
+# npm ci runs in the install phase; build command only needs strapi build.
+buildCommand = "NODE_ENV=production npm run build"
+
+[deploy]
+startCommand = "NODE_ENV=production npm run start"
+healthcheckPath = "/_health"
+healthcheckTimeout = 60
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5
