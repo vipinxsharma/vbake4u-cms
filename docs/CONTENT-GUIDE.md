@@ -14,6 +14,39 @@ If you ever get locked out, ask your developer to reset your admin password.
 
 ---
 
+## Global site settings
+
+1. Click **Content Manager** in the left sidebar.
+2. Click **Global** under Single Types.
+3. There is only one Global entry — edit it directly.
+
+### FSSAI registration number
+
+| Field | What to enter |
+|---|---|
+| **FSSAI Number** | Your 14-digit FSSAI license number, e.g. `12345678901234`. Leave blank until you have it — the footer and policy pages will show "FSSAI number to be updated" automatically. |
+
+Once you add the number here and save, it appears in:
+- The footer on every page
+- The Delivery Policy page
+- The Allergen Information page
+
+**You do not need to change any code to update this number** — edit the Global entry in the admin panel and the website updates within one hour (or immediately if cache flush is triggered).
+
+### Other Global fields
+
+| Field | What to enter |
+|---|---|
+| **WhatsApp Number** | Your WhatsApp number in E.164 format without the `+`, e.g. `919876543210`. This drives every "Order on WhatsApp" button on the site. |
+| **Phone Number** | Display number shown in footer, e.g. `+91 98765 43210` |
+| **Email** | Contact email shown in footer, e.g. `hello@vbake4u.com` |
+| **Instagram URL** | Full URL to your Instagram profile |
+| **Address** | Your area, e.g. `Pune, Maharashtra` |
+| **Announcement Text** | Optional banner above the navigation, e.g. `Free delivery on orders above ₹500`. Leave blank to hide the banner. |
+| **Footer Tagline** | One-line tagline below the VBake4U logo in the footer |
+
+---
+
 ## Adding or editing a cake
 
 1. Click **Content Manager** in the left sidebar.

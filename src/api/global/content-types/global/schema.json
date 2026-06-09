@@ -50,7 +50,7 @@
     },
     "fssaiNumber": {
       "type": "string",
-      "description": "14-digit FSSAI license number displayed in footer"
+      "description": "FSSAI registration number shown in footer and policy pages. Leave blank until registration is available."
     },
     "footerTagline": {
       "type": "string"
