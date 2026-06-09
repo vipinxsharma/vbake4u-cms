@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testimonials",
+  "info": {
+    "singularName": "testimonial",
+    "pluralName": "testimonials",
+    "displayName": "Testimonial",
+    "description": "Customer reviews. Only isApproved=true rows are served to the public."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customerName": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "description": "City or area, e.g. \"Koregaon Park, Pune\""
+    },
+    "rating": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 5
+    },
+    "review": {
+      "type": "text",
+      "required": true
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "occasion": {
+      "type": "string",
+      "description": "e.g. 'Birthday', 'Anniversary' — shown as a badge on the card"
+    },
+    "isApproved": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

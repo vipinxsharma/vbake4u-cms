@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "daily_capacities",
+  "info": {
+    "singularName": "daily-capacity",
+    "pluralName": "daily-capacities",
+    "displayName": "Daily Capacity",
+    "description": "Per-date order capacity managed by Nitu. Read by the frontend date picker."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "maxOrders": {
+      "type": "integer",
+      "required": true,
+      "default": 5
+    },
+    "bookedOrders": {
+      "type": "integer",
+      "default": 0,
+      "description": "Incremented by Order lifecycle on reserve; decremented on cancel"
+    },
+    "isBlocked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hard-block this date regardless of bookedOrders (holidays, personal days)"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Internal note explaining why the date is blocked"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivery_zones",
+  "info": {
+    "singularName": "delivery-zone",
+    "pluralName": "delivery-zones",
+    "displayName": "Delivery Zone",
+    "description": "Pincode-based delivery availability, fee, and cutoff time"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "areaName": {
+      "type": "string",
+      "required": true,
+      "description": "Human-readable area name, e.g. \"Koregaon Park\""
+    },
+    "pincode": {
+      "type": "string",
+      "required": true,
+      "description": "6-digit Indian pincode"
+    },
+    "deliveryFee": {
+      "type": "decimal",
+      "required": true,
+      "default": 0
+    },
+    "minimumLeadTimeHours": {
+      "type": "integer",
+      "default": 24,
+      "description": "Additional lead time for this zone on top of the cake\'s own leadTimeHours"
+    },
+    "cutoffTime": {
+      "type": "string",
+      "default": "18:00",
+      "description": "Order cutoff time in HH:MM (24h). Orders placed after this cannot be delivered next day."
+    },
+    "isAvailable": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
