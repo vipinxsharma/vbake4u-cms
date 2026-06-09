@@ -64,23 +64,18 @@ function logR2Status(strapi) {
   }
 }
 
-/**
- * Public role permissions granted on bootstrap.
- * Populated incrementally as Phase 2 PRs add content types.
- * Key: Strapi UID. Value: allowed actions for the public role.
- */
 const PUBLIC_PERMISSIONS = {
-  'api::global.global':           ['find'],            // PR 2.1
-  // 'api::category.category':       ['find', 'findOne'], // PR 2.2
-  // 'api::cake.cake':               ['find', 'findOne'], // PR 2.2
-  // 'api::add-on.add-on':           ['find', 'findOne'], // PR 2.2
+  'api::global.global':               ['find'],            // PR 2.1
+  'api::category.category':           ['find', 'findOne'], // PR 2.2
+  'api::cake.cake':                   ['find', 'findOne'], // PR 2.2
+  'api::add-on.add-on':               ['find', 'findOne'], // PR 2.2
   // 'api::delivery-zone.delivery-zone': ['find', 'findOne'], // PR 2.3
-  // 'api::daily-capacity.daily-capacity': ['find'],      // PR 2.3
-  // 'api::order.order':             ['create'],          // PR 2.4 (create-only)
-  // 'api::testimonial.testimonial': ['find', 'findOne'], // PR 2.5
-  // 'api::ai-setting.ai-setting':   ['find'],            // PR 2.6
-  // 'api::occasion.occasion':       ['find', 'findOne'], // PR 2.7
-  // 'api::combo.combo':             ['find', 'findOne'], // PR 2.8
+  // 'api::daily-capacity.daily-capacity': ['find'],          // PR 2.3
+  // 'api::order.order':                 ['create'],          // PR 2.4 (create-only)
+  // 'api::testimonial.testimonial':     ['find', 'findOne'], // PR 2.5
+  // 'api::ai-setting.ai-setting':       ['find'],            // PR 2.6
+  // 'api::occasion.occasion':           ['find', 'findOne'], // PR 2.7
+  // 'api::combo.combo':                 ['find', 'findOne'], // PR 2.8
 };
 
 async function setPublicPermissions(strapi) {

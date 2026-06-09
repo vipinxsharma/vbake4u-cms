@@ -1,0 +1,101 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cakes",
+  "info": {
+    "singularName": "cake",
+    "pluralName": "cakes",
+    "displayName": "Cake",
+    "description": "VBake4U cake catalog — standard and custom cakes"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "cakes"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "shortDescription": {
+      "type": "text",
+      "description": "One-liner shown on catalog cards (max ~100 chars)"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "basePrice": {
+      "type": "decimal",
+      "description": "Base price in INR for the smallest/default weight option"
+    },
+    "startingPriceLabel": {
+      "type": "string",
+      "description": "Display label e.g. 'From ₹1,299' or 'Custom pricing'. Overrides auto-format when set."
+    },
+    "availableWeights": {
+      "type": "json",
+      "description": "Array of weight tiers: [{\"label\": \"500g\", \"weightKg\": 0.5, \"price\": 899}, ...]"
+    },
+    "availableFlavors": {
+      "type": "json",
+      "description": "Array of flavor strings: [\"Chocolate\", \"Vanilla\", \"Strawberry\", ...]"
+    },
+    "egglessAvailable": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "allergenInfo": {
+      "type": "text",
+      "description": "Allergen declaration — displayed on PDP accordion and policy page"
+    },
+    "leadTimeHours": {
+      "type": "integer",
+      "default": 24,
+      "description": "Minimum hours required before delivery date"
+    },
+    "isCustomPricing": {
+      "type": "boolean",
+      "default": false,
+      "description": "True = quote-based; hides \"Reserve\" button in favour of \"Request Quote\""
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show on homepage Signature Cakes strip"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "addOns": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::add-on.add-on",
+      "inversedBy": "cakes"
+    },
+    "seoTitle": {
+      "type": "string"
+    },
+    "seoDescription": {
+      "type": "text"
+    }
+  }
+}
