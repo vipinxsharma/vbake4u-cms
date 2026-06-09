@@ -1,9 +1,5 @@
 'use strict';
 
-/**
- * Boot probe: log whether Resend order notifications are wired up.
- * Checks RESEND_API_KEY, RESEND_FROM_EMAIL, EMAIL_TO.
- */
 function logResendStatus(strapi) {
   const reasons = [];
   const apiKey   = process.env.RESEND_API_KEY;
@@ -42,10 +38,6 @@ function logResendStatus(strapi) {
   }
 }
 
-/**
- * Boot probe: log whether Cloudflare R2 upload provider is configured.
- * Missing R2 on Railway = ephemeral local-disk = photos wiped on redeploy.
- */
 function logR2Status(strapi) {
   const required = {
     R2_ACCESS_KEY_ID:     process.env.R2_ACCESS_KEY_ID,
@@ -73,20 +65,18 @@ function logR2Status(strapi) {
 }
 
 /**
- * Declarative public permissions map.
- * Populated incrementally as Phase 2 PRs add each content type.
- * Keys: Strapi UID (e.g. 'api::cake.cake').
- * Values: array of actions ('find', 'findOne', 'create').
+ * Public role permissions granted on bootstrap.
+ * Populated incrementally as Phase 2 PRs add content types.
+ * Key: Strapi UID. Value: allowed actions for the public role.
  */
 const PUBLIC_PERMISSIONS = {
-  // Phase 2 PRs add entries here:
-  // 'api::global.global':           ['find'],            // PR 2.1
+  'api::global.global':           ['find'],            // PR 2.1
   // 'api::category.category':       ['find', 'findOne'], // PR 2.2
   // 'api::cake.cake':               ['find', 'findOne'], // PR 2.2
   // 'api::add-on.add-on':           ['find', 'findOne'], // PR 2.2
   // 'api::delivery-zone.delivery-zone': ['find', 'findOne'], // PR 2.3
   // 'api::daily-capacity.daily-capacity': ['find'],      // PR 2.3
-  // 'api::order.order':             ['create'],          // PR 2.4 (create only, no read)
+  // 'api::order.order':             ['create'],          // PR 2.4 (create-only)
   // 'api::testimonial.testimonial': ['find', 'findOne'], // PR 2.5
   // 'api::ai-setting.ai-setting':   ['find'],            // PR 2.6
   // 'api::occasion.occasion':       ['find', 'findOne'], // PR 2.7
@@ -126,7 +116,6 @@ async function setPublicPermissions(strapi) {
 
 module.exports = {
   register({ strapi }) {
-    // /_health endpoint for Railway healthcheck (no /api prefix).
     strapi.server.app.use(async (ctx, next) => {
       if (ctx.path === '/_health') {
         ctx.status = 200;

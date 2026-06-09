@@ -1,0 +1,74 @@
+{
+  "kind": "singleType",
+  "collectionName": "global",
+  "info": {
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "Global",
+    "description": "Site-wide configuration — WhatsApp number, logo, FSSAI, footer copy, SEO defaults"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "siteName": {
+      "type": "string",
+      "required": true,
+      "default": "VBake4U"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "logoAlt": {
+      "type": "string",
+      "default": "VBake4U"
+    },
+    "announcementText": {
+      "type": "string",
+      "description": "Optional banner above the nav (e.g. 'Free delivery on orders above ₹500')"
+    },
+    "whatsappNumber": {
+      "type": "string",
+      "required": true,
+      "description": "E.164 format without +, e.g. 919876543210. Used in wa.me links."
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "instagramUrl": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "fssaiNumber": {
+      "type": "string",
+      "description": "14-digit FSSAI license number displayed in footer"
+    },
+    "footerTagline": {
+      "type": "string"
+    },
+    "footerText": {
+      "type": "text"
+    },
+    "defaultSeoTitle": {
+      "type": "string"
+    },
+    "defaultSeoDescription": {
+      "type": "text"
+    },
+    "defaultOgImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}
