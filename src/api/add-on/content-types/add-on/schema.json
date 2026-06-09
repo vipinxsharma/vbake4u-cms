@@ -43,6 +43,12 @@
       "relation": "manyToMany",
       "target": "api::cake.cake",
       "mappedBy": "addOns"
+    },
+    "recommendedCakes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cake.cake",
+      "mappedBy": "recommendedAddOns"
     }
   }
 }

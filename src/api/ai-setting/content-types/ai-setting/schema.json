@@ -1,0 +1,52 @@
+{
+  "kind": "singleType",
+  "collectionName": "ai_setting",
+  "info": {
+    "singularName": "ai-setting",
+    "pluralName": "ai-settings",
+    "displayName": "AI Settings",
+    "description": "Runtime controls for the AI Cake Maker (Sprint 2). enabled=false until Sprint 2 ships."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true,
+      "description": "Master switch. False = AI page shows a \"coming soon\" state."
+    },
+    "dailyGenerationLimit": {
+      "type": "integer",
+      "default": 2,
+      "description": "Max AI generations per phone number per day"
+    },
+    "imagesPerRequest": {
+      "type": "integer",
+      "default": 3,
+      "description": "Concepts generated per request (max 4 per OpenAI Images API)"
+    },
+    "costPerRequest": {
+      "type": "decimal",
+      "description": "Estimated INR cost per generation — informational only, not enforced"
+    },
+    "bannedKeywords": {
+      "type": "json",
+      "description": "Array of strings blocked from prompts: [\"Disney\", \"Marvel\", ...]"
+    },
+    "promptPrefix": {
+      "type": "text",
+      "description": "Injected before every user prompt (safety/style instructions)"
+    },
+    "promptSuffix": {
+      "type": "text",
+      "description": "Injected after every user prompt (quality/format instructions)"
+    },
+    "monthlyBudget": {
+      "type": "decimal",
+      "description": "Monthly OpenAI spend limit in INR — informational; enforcement is manual"
+    }
+  }
+}

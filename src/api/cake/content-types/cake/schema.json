@@ -32,7 +32,7 @@
     },
     "shortDescription": {
       "type": "text",
-      "description": "One-liner shown on catalog cards (max ~100 chars)"
+      "description": "One-liner for catalog cards (max ~100 chars)"
     },
     "gallery": {
       "type": "media",
@@ -46,15 +46,15 @@
     },
     "startingPriceLabel": {
       "type": "string",
-      "description": "Display label e.g. 'From ₹1,299' or 'Custom pricing'. Overrides auto-format when set."
+      "description": "Display label e.g. 'From ₹1,299'. Overrides auto-format when set."
     },
     "availableWeights": {
       "type": "json",
-      "description": "Array of weight tiers: [{\"label\": \"500g\", \"weightKg\": 0.5, \"price\": 899}, ...]"
+      "description": "Array: [{\"label\":\"500g\",\"weightKg\":0.5,\"price\":899}, ...]"
     },
     "availableFlavors": {
       "type": "json",
-      "description": "Array of flavor strings: [\"Chocolate\", \"Vanilla\", \"Strawberry\", ...]"
+      "description": "Array: [\"Chocolate\",\"Vanilla\",\"Strawberry\"]"
     },
     "egglessAvailable": {
       "type": "boolean",
@@ -62,23 +62,19 @@
       "required": true
     },
     "allergenInfo": {
-      "type": "text",
-      "description": "Allergen declaration — displayed on PDP accordion and policy page"
+      "type": "text"
     },
     "leadTimeHours": {
       "type": "integer",
-      "default": 24,
-      "description": "Minimum hours required before delivery date"
+      "default": 24
     },
     "isCustomPricing": {
       "type": "boolean",
-      "default": false,
-      "description": "True = quote-based; hides \"Reserve\" button in favour of \"Request Quote\""
+      "default": false
     },
     "isFeatured": {
       "type": "boolean",
-      "default": false,
-      "description": "Show on homepage Signature Cakes strip"
+      "default": false
     },
     "isActive": {
       "type": "boolean",
@@ -90,6 +86,18 @@
       "relation": "manyToMany",
       "target": "api::add-on.add-on",
       "inversedBy": "cakes"
+    },
+    "recommendedAddOns": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::add-on.add-on",
+      "inversedBy": "recommendedCakes"
+    },
+    "occasions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::occasion.occasion",
+      "mappedBy": "featuredCakes"
     },
     "seoTitle": {
       "type": "string"
