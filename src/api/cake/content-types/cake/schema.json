@@ -50,11 +50,11 @@
     },
     "availableWeights": {
       "type": "json",
-      "description": "Array: [{\"label\":\"500g\",\"weightKg\":0.5,\"price\":899}, ...]"
+      "description": "JSON array of weight options displayed as chips on the product page. Use plain strings. Example: [\"0.5 kg\", \"1 kg\", \"1.5 kg\", \"2 kg\"]. Leave blank if only one size is available."
     },
     "availableFlavors": {
       "type": "json",
-      "description": "Array: [\"Chocolate\",\"Vanilla\",\"Strawberry\"]"
+      "description": "JSON array of flavour options displayed as chips on the product page. Example: [\"Chocolate\", \"Vanilla\", \"Strawberry\", \"Red Velvet\"]. Leave blank if the cake is available in one flavour only."
     },
     "egglessAvailable": {
       "type": "boolean",
@@ -62,7 +62,8 @@
       "required": true
     },
     "allergenInfo": {
-      "type": "text"
+      "type": "text",
+      "description": "Short, plain-English allergen note shown on the product page. Example: \"Contains: wheat, eggs, dairy. May contain traces of nuts and soy.\" Leave blank if covered by the site-wide allergen policy."
     },
     "leadTimeHours": {
       "type": "integer",
