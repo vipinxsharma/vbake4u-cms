@@ -30,7 +30,7 @@
     "minimumLeadTimeHours": {
       "type": "integer",
       "default": 24,
-      "description": "Additional lead time for this zone on top of the cake\'s own leadTimeHours"
+      "description": "Additional lead time for this zone on top of the cake's own leadTimeHours"
     },
     "cutoffTime": {
       "type": "string",
