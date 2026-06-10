@@ -1,5 +1,5 @@
 'use strict';
 
-const { createSingleTypeRouter } = require('@strapi/strapi').factories;
+const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createSingleTypeRouter('api::ai-setting.ai-setting');
+module.exports = createCoreRouter('api::ai-setting.ai-setting');
